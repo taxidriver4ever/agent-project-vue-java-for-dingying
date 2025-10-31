@@ -4,18 +4,25 @@
             <ElMain style="display: flex; height: 100vh;flex: 1;overflow: hidden;">
                 <div
                     style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;">
-                    <h2 style="display: flex;">用邮箱继续</h2>
+                    <h2 style="display: flex;margin-bottom: 20px;font-size: 30px;">用邮箱继续</h2>
                     <div style="display: flex;flex-direction: column;">
-                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;" v-show="isFocus && !userEmail">请输入邮箱</div>
+                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                            v-show="isUserEmailInputFocus">请输入邮箱</div>
                         <input @focusout="userEmailFocusOutEvent" @focusin="userEmailFocusInEvent" v-model="userEmail"
                             :placeholder="userEmailPlaceHolder" class="user-information-input" />
                     </div>
                     <div>
-                        <input v-model="userPassword" :placeholder="userPasswordPlaceHolder"
+                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                            v-show="isUserPasswordInputFocus">请输入密码</div>
+                        <input @focusout="userPasswordFocusOutEvent" @focusin="userPasswordFocusInEvent"
+                            v-model="userPassword" :placeholder="userPasswordPlaceHolder"
                             class="user-information-input" />
                     </div>
                     <div style="display: flex;flex-direction: column;">
-                        <input v-model="userName" :placeholder="userNamePlaceHolder" class="user-information-input" />
+                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                            v-show="isUserNameInputFocus">请输入用户名</div>
+                        <input @focusout="userNameFocusOutEvent" @focusin="userNameFocusInEvent" v-model="userName"
+                            :placeholder="userNamePlaceHolder" class="user-information-input" />
                     </div>
                 </div>
             </ElMain>
@@ -28,21 +35,39 @@
 
 <script setup lang="ts">
 import { ElContainer, ElAside, ElMain } from 'element-plus';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 const userEmail = ref("")
 const userPassword = ref("")
 const userName = ref("")
 const userNamePlaceHolder = ref("请输入用户名");
 const userEmailPlaceHolder = ref("请输入邮箱");
 const userPasswordPlaceHolder = ref("请输入密码");
-const isFocus = ref(false);
+const isUserEmailInputFocus = ref(false);
+const isUserNameInputFocus = ref(false);
+const isUserPasswordInputFocus = ref(false);
 const userEmailFocusInEvent = () => {
-    isFocus.value = true;
+    isUserEmailInputFocus.value = true;
     userEmailPlaceHolder.value = "";
 }
 const userEmailFocusOutEvent = () => {
-    isFocus.value = false;
+    isUserEmailInputFocus.value = false;
     if (userEmail.value === "") userEmailPlaceHolder.value = "请输入邮箱";
+}
+const userPasswordFocusInEvent = () => {
+    isUserPasswordInputFocus.value = true;
+    userPasswordPlaceHolder.value = "";
+}
+const userPasswordFocusOutEvent = () => {
+    isUserPasswordInputFocus.value = false;
+    if (userPassword.value === "") userPasswordPlaceHolder.value = "请输入密码";
+}
+const userNameFocusInEvent = () => {
+    isUserNameInputFocus.value = true;
+    userNamePlaceHolder.value = "";
+}
+const userNameFocusOutEvent = () => {
+    isUserNameInputFocus.value = false;
+    if (userName.value === "") userNamePlaceHolder.value = "请输入用户名";
 }
 </script>
 
@@ -55,8 +80,7 @@ const userEmailFocusOutEvent = () => {
     padding: 10px;
     height: 30px;
     font-size: 18px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
     border: 1px solid grey;
 }
 
