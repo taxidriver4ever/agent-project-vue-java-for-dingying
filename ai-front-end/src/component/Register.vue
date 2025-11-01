@@ -5,32 +5,34 @@
                 <div
                     style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;height: 750px;">
                     <h2 style="display: flex;margin-bottom: 20px;font-size: 30px;">用邮箱继续</h2>
-                    <div style="display: flex;flex-direction: column;">
-                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                    <div class="user-information-container">
+                        <div class="user-information-input-tips"
                             v-show="isUserEmailInputFocus">请输入邮箱</div>
                         <input @focusout="userEmailFocusOutEvent" @focusin="userEmailFocusInEvent" v-model="userEmail"
                             :placeholder="userEmailPlaceHolder" class="user-information-input" />
                     </div>
-                    <div>
-                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                    <div class="user-information-container">
+                        <div class="user-information-input-tips"
                             v-show="isUserPasswordInputFocus">请输入密码</div>
                         <input @focusout="userPasswordFocusOutEvent" @focusin="userPasswordFocusInEvent"
                             v-model="userPassword" :placeholder="userPasswordPlaceHolder"
                             class="user-information-input" />
                     </div>
-                    <div style="display: flex;flex-direction: column;">
-                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
+                    <div class="user-information-container">
+                        <div class="user-information-input-tips"
                             v-show="isUserNameInputFocus">请输入用户名</div>
                         <input @focusout="userNameFocusOutEvent" @focusin="userNameFocusInEvent" v-model="userName"
                             :placeholder="userNamePlaceHolder" class="user-information-input" />
                     </div>
-                    <div class="verification-code-container" style="display: flex;flex-direction: column;">
-                        <div style="padding-left: 5px;padding-right: 5px;position: absolute;background-color: white;color: #9005b0;margin-left: 10px;"
-                            v-show="isUserVerificationCodeInputFocus">请输入验证码</div>
-                        <input @focusout="userVerificationCodeFocusOutEvent" @focusin="userVerificationCodeFocusInEvent"
-                            v-model="userVerificationCode" :placeholder="userVerificationCodePlaceHolder"
-                            class="verification-input" />
-                        <button class="captcha-button" >获取验证码</button>
+                    <div class="user-information-container" style="flex-direction: row;align-items: center;">
+                        <div style="display: flex;flex-direction: column;margin-right: auto;">
+                            <div class="user-information-input-tips"
+                                v-show="isUserVerificationCodeInputFocus">请输入验证码</div>
+                            <input @focusout="userVerificationCodeFocusOutEvent"
+                                @focusin="userVerificationCodeFocusInEvent" v-model="userVerificationCode"
+                                :placeholder="userVerificationCodePlaceHolder" class="verification-input" />
+                        </div>
+                        <button class="captcha-button">获取验证码</button>
                     </div>
                 </div>
                 <button class="sign-up-button">注册</button>
@@ -98,9 +100,23 @@ const userVerificationCodeFocusOutEvent = () => {
 
 
 <style scoped>
+.user-information-container {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+}
+
+.user-information-input-tips {
+    padding-left: 5px;
+    padding-right: 5px;
+    position: absolute;
+    background-color: white;
+    color: #9005b0;
+    margin-left: 10px;
+}
+
 .user-information-input {
     display: flex;
-    width: 50vh;
     border-radius: 5px;
     padding: 10px;
     height: 30px;
@@ -111,8 +127,8 @@ const userVerificationCodeFocusOutEvent = () => {
 }
 
 .verification-input {
+    margin-right: auto;
     display: flex;
-    flex: 2;
     border-radius: 5px;
     padding: 10px;
     height: 30px;
@@ -123,11 +139,10 @@ const userVerificationCodeFocusOutEvent = () => {
 }
 
 .captcha-button {
-    display: flex;
-    flex: 1;
-    width: 100px;
-    height: 36px;
-    padding: 0 12px;
+    height: 50px;
+    width: 120px;
+    margin-left: auto;
+    padding: 8px 12px;
     background: #f3f3f3;
     border: 1px solid #ccc;
     border-radius: 6px;
