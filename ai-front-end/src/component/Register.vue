@@ -1,9 +1,10 @@
 <template>
     <div style="display: flex;height: 100vh;width: 100%;">
         <ElContainer style="display: flex;height: 100vh;width: 100%;">
-            <ElMain style="display: flex; height: 100vh;flex: 1;overflow: hidden;">
+            <ElMain style="display: flex; height: 100vh;flex: 1;overflow: hidden;flex-direction: column;
+            align-items: center; justify-content: center;">
                 <div
-                    style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;height: 750px;">
+                    style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;">
                     <h2 style="display: flex;margin-bottom: 20px;font-size: 30px;">用邮箱继续</h2>
                     <div class="user-information-container">
                         <div class="user-information-input-tips"
@@ -37,7 +38,7 @@
                 </div>
                 <button class="sign-up-button">注册</button>
                 <h5 class="tips">注册即表示您同意<a href="#">条款与条件</a>以及<a href="#">隐私政策</a></h5>
-                <div class="turn-to-login">
+                <div>
                     <h5>已经注册？<a href="#">立即登录</a></h5>
                 </div>
             </ElMain>
@@ -156,16 +157,6 @@ const userVerificationCodeFocusOutEvent = () => {
     color: #9005b0;
 }
 
-.floating-note {
-    position: absolute;
-    left: 8px;
-    top: -14px;
-    background-color: white;
-    color: #9005b0;
-    padding: 0 6px;
-    font-size: 12px;
-}
-
 .user-information-input:focus,
 .verification-input:focus {
     outline: none;
@@ -178,47 +169,21 @@ const userVerificationCodeFocusOutEvent = () => {
 }
 
 .sign-up-button {
-    position: absolute;
-    bottom: 300px;
-    left: 25%;
-    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 200px;
     height: 50px;
     background-color: #9005b0;
     color: white;
-    border: none;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .sign-up-button:hover {
     background-color: #a40ad3;
-}
-
-/* tips是条款条件 */
-.tips {
-    position: absolute;
-    bottom: 250px;
-    left: 25%;
-    transform: translateX(-50%);
-    color: grey;
-}
-
-.tips a,
-.tips a:visited {
-    color: inherit;
-    text-decoration-line: underline;
-    text-decoration-color: currentColor;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 4px;
-    text-decoration-style: solid;
-}
-
-.turn-to-login {
-    position: absolute;
-    bottom: 200px;
-    left: 25%;
-    transform: translateX(-50%);
 }
 </style>
