@@ -7,28 +7,25 @@
                     style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;">
                     <h2 style="display: flex;margin-bottom: 20px;font-size: 30px;">用邮箱继续</h2>
                     <div class="user-information-container">
-                        <div class="user-information-input-tips"
-                            v-show="isUserEmailInputFocus">请输入邮箱</div>
+                        <div class="user-information-input-tips" v-show="isUserEmailInputFocus">请输入邮箱</div>
                         <input @focusout="userEmailFocusOutEvent" @focusin="userEmailFocusInEvent" v-model="userEmail"
                             :placeholder="userEmailPlaceHolder" class="user-information-input" />
                     </div>
                     <div class="user-information-container">
-                        <div class="user-information-input-tips"
-                            v-show="isUserPasswordInputFocus">请输入密码</div>
+                        <div class="user-information-input-tips" v-show="isUserPasswordInputFocus">请输入密码</div>
                         <input @focusout="userPasswordFocusOutEvent" @focusin="userPasswordFocusInEvent"
                             v-model="userPassword" :placeholder="userPasswordPlaceHolder"
                             class="user-information-input" />
                     </div>
                     <div class="user-information-container">
-                        <div class="user-information-input-tips"
-                            v-show="isUserNameInputFocus">请输入用户名</div>
+                        <div class="user-information-input-tips" v-show="isUserNameInputFocus">请输入用户名</div>
                         <input @focusout="userNameFocusOutEvent" @focusin="userNameFocusInEvent" v-model="userName"
                             :placeholder="userNamePlaceHolder" class="user-information-input" />
                     </div>
                     <div class="user-information-container" style="flex-direction: row;align-items: center;">
                         <div style="display: flex;flex-direction: column;margin-right: auto;">
-                            <div class="user-information-input-tips"
-                                v-show="isUserVerificationCodeInputFocus">请输入验证码</div>
+                            <div class="user-information-input-tips" v-show="isUserVerificationCodeInputFocus">请输入验证码
+                            </div>
                             <input @focusout="userVerificationCodeFocusOutEvent"
                                 @focusin="userVerificationCodeFocusInEvent" v-model="userVerificationCode"
                                 :placeholder="userVerificationCodePlaceHolder" class="verification-input" />
@@ -37,10 +34,8 @@
                     </div>
                 </div>
                 <button class="sign-up-button">注册</button>
-                <h5 class="tips">注册即表示您同意<a href="#">条款与条件</a>以及<a href="#">隐私政策</a></h5>
-                <div>
-                    <h5>已经注册？<a href="#">立即登录</a></h5>
-                </div>
+                <h5>注册即表示您同意<a href="#">条款与条件</a>以及<a href="#">隐私政策</a></h5>
+                <h5>已经注册？<a href="#">立即登录</a></h5>
             </ElMain>
             <ElAside
                 style="background-position: center;background-size: cover;background-repeat: no-repeat;overflow: hidden;display: flex;height: 100vh;flex: 1;background-image: url('/src/image/right.png');">
