@@ -1,15 +1,15 @@
 <template>
     <div >
-        <ElContainer style="background-position: center;height:100vh;background-image: url('/src/image/background.png');">
+        <ElContainer style="background-position: center;background-size: cover;display: flex;flex-direction: column;height:100vh;width: 100%;background-image: url('/src/image/background.png');">
             <ElHeader
-                style="background-position: center;background-size: cover;background-repeat: no-repeat;overflow: hidden;display: flex;height: 10vh;flex: 1;position: relative;">
+                style="background-position: center;background-size: cover;background-repeat: no-repeat;overflow: hidden;display: flex;justify-content: space-between;align-items: center;height: 10vh;flex: 1;margin-top: 0;">
                 <img src="/src/image/logo2.png" alt="Logo" class="logo-left" />
                 <div class="register-container">
                     <h3>没有账号？</h3>
                     <button class="register-button">注册</button>
                 </div>
             </ElHeader>
-            <ElMain style="">
+            <ElMain style="display: flex;justify-content: center;align-items: center;flex: 1;flex-direction: column;">
                 <div
                 class="login-container"    
                 style="display: flex;flex-direction: column;width: 100%;justify-content: center;align-items: center;height: 750px;">
@@ -24,11 +24,11 @@
                         <button class="login-button">登录</button>
                     </div>
                 </div>
-            </ElMain>
-            <ElFooter>
-                <div style="justify-items: center;padding: auto;max-width: 500px;;margin: 50px auto;">
+                <div>
                     <h4>本网站受 reCAPTCHA 保护，适用 Google<a href="#">隐私政策</a>和<a href="#">服务条款</a></h4>
                 </div>
+            </ElMain>
+            <ElFooter style="display: flex;flex-direction: column;align-items: center;justify-content: center;flex: 1;height: 10vh;margin:auto;">
             </ElFooter>
         </ElContainer>
 
@@ -46,16 +46,18 @@ const userPassword = ref("");
 
 <style scoped>
 .login-container {
-    background-color: rgb(246, 247, 249);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     max-width: 500px;
     max-height: 400px;
-    margin: 200px auto auto auto;
+    margin: 80px;
+    box-shadow: #686565 0px 4px 12px;
+    border-radius: 12px;
 }
 .login-button{
     margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #8024e9;
+    padding: 10px 110px;
+    background-color: #766ce0;
     color: white;
     border: none;
     border-radius: 4px;
@@ -84,18 +86,19 @@ const userPassword = ref("");
 }
 
 .logo-left {
-    position: absolute;
-    left: 20px;
-    top: 5px;
+    display: flex;
+    margin-left: 20px;
     width: 150px;
     height: auto;
 }
 
 .register-container {
     display: flex;
-    margin: auto 30px auto auto;
+    margin: 40px 40px auto 0;
     color: #544f4f;
     align-items: baseline;
+    gap: 10px;
+    padding: 20px 10px;
 }
 
 .register-container h3 {
@@ -107,9 +110,9 @@ const userPassword = ref("");
 }
 
 .register-button {
-    margin: 0 0 auto 15px;
+    margin: auto;
     padding: 8px 16px;
-    background-color: #8024e9;
+    background-color: #7558e7;
     color: white;
     border: none;
     border-radius: 4px;
